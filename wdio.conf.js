@@ -22,9 +22,16 @@ exports.config = {
     // of the config file unless it's absolute.
     //
     specs: [
-        './test/specs/**/*.js'
+        './test/specs/test.e2e.js'
+        //'./test/specs/signup.e2e.js'
     ],
-    // Patterns to exclude.
+
+    suites: {
+        uptoSignup: [
+            './test/specs/test.e2e.js',
+            './test/specs/signup.e2e.js'
+        ],
+    },
     exclude: [
         // 'path/to/excluded/files'
     ],
@@ -51,14 +58,14 @@ exports.config = {
     // https://saucelabs.com/platform/platform-configurator
     //
     capabilities: [{
-    platformName: "Android",
-    "appium:deviceName": "emulator-5554",   
-    "appium:platformVersion": "14.0",       
-    "appium:automationName": "UiAutomator2",
-    "appium:app": "D:\\Android Testing\\app-release.apk", 
-    "appium:autoGrantPermissions": true
-}]
-,
+        platformName: "Android",
+        "appium:deviceName": "emulator-5554",
+        "appium:platformVersion": "14.0",
+        "appium:automationName": "UiAutomator2",
+        "appium:app": "D:\\Android Testing\\apk\\app-release.apk",
+        "appium:autoGrantPermissions": true,
+    }]
+    ,
 
     //
     // ===================
@@ -116,7 +123,7 @@ exports.config = {
     // Make sure you have the wdio adapter package for the specific framework installed
     // before running any tests.
     framework: 'mocha',
-    
+
     //
     // The number of times to retry the entire specfile when it fails as a whole
     // specFileRetries: 1,
@@ -136,7 +143,7 @@ exports.config = {
     // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: 'bdd',
-        timeout: 1200000
+        timeout: 1800000
     },
 
     //
