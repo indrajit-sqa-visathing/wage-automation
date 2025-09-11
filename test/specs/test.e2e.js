@@ -1,8 +1,11 @@
-
 const assessmentActions= require('../pages/assessment/assessmentActions');
 
-describe('Assessment Test', () => {
-    it('Should Complete the Journey', async () => {
+const signupActions = require('../pages/signup/signupActions');
+const otpActions = require('../pages/otp/otpActions');
+const { createMailbox, waitForOtp } = require('../utils/tempMail');
+
+describe('Assessment and Signup Test Suite', () => {
+    it('Should Complete the Assessment', async () => {
         await driver.pause(3000);
         await assessmentActions.clickStartAssessment();
         console.log("Clicked Start Assessment");
@@ -67,10 +70,30 @@ describe('Assessment Test', () => {
         await assessmentActions.clickSuggestedCountry();
         console.log("Clicked Suggested Country");
         
-        await driver.pause(5000);
+        await driver.pause(2000);
         await assessmentActions.clickCreateProfileButton();
         console.log("Clicked Create Profile Button");
         
-        await driver.pause(5000);
+        await driver.pause(2000);
     });
+
+    it('Should sign up and verify OTP successfully', async () => {
+        
+        const { email, sidToken } = await createMailbox();
+        console.log("Temp Email:", email);
+
+        await signupActions.enterFirstName("Test User");
+        await signupActions.enterEmail(email);
+        await signupActions.enterPassword("Password123!");
+        await signupActions.clickSignUpButton();
+
+        const otp = await waitForOtp(sidToken);
+        console.log("OTP Received:", otp);
+
+        await otpActions.enterOtp(otp);
+        await otpActions.tapVerifyButton();
+        await otpActions.tapVerifyButton();
+        await driver.pause(10000);
+    });
+
 });
