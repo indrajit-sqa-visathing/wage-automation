@@ -1,7 +1,7 @@
 class HomeScreenButtonsLocators {
     
     get completeProfileButton() { 
-        return $('//android.view.ViewGroup[@content-desc="1%, Test User, Let’s Complete Your Profile!, Bangladesh"]');
+        return $('(//android.widget.TextView[@text="Bangladesh"])[1]');
     }
 
     get jobSeeAllButton() { 
