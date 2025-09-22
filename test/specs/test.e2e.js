@@ -7,6 +7,7 @@ const jobApplyActions = require('../pages/postlogin/jobApplyActions');
 const signupActions = require('../pages/signup/signupActions');
 const otpActions = require('../pages/otp/otpActions');
 const courseAndJobCheckActions = require('../pages/postlogin/courseAndJobCheckActions');
+const changePasswordActions = require('../pages/postlogin/changePasswordActions');
 const utility = require('../utils/utility');
 const profileCompleteActions = require('../pages/postlogin/profileCompleteActions');
 const courseEnrollLocators = require('../pages/postlogin/courseEnrollLocators');
@@ -14,7 +15,9 @@ const jobApplyLocators = require('../pages/postlogin/jobApplyLocators');
 const { scrollToElement } = require('../utils/scroll');
 const { createMailbox, waitForOtp } = require('../utils/tempMail');
 const profileCompleteLocators = require('../pages/postlogin/profileCompleteLocators');
-var randomNumber,firstname,lastname,address,mobileNumber,nid;
+const logoutActions = require('../pages/postlogin/logoutActions');
+const darkmodeActions = require('../pages/postlogin/darkmodeActions');
+var randomNumber, firstname, lastname, address, mobileNumber, nid;
 
 
 // describe('Assessment and Signup Test Suite', () => {
@@ -255,225 +258,264 @@ describe('After Logging in Test Suite', () => {
     //     console.log("Clicked My Job Applications");
     //     await driver.back();
     //     await jobApplyActions.clickOnBackToHomeButton();
-    
+
     //     await driver.pause(2000);
     // });
 
-    it('T-006: Profile Completion', async () => {
+    // it('T-006: Profile Completion', async () => {
 
-        // await bottomNavigationActions.clickOkayButton();
-        // console.log("Clicked Okay Button");
-        // await driver.pause(2000);
+    //     // await bottomNavigationActions.clickOkayButton();
+    //     // console.log("Clicked Okay Button");
+    //     // await driver.pause(2000);
 
-       
-       firstname = "Test "+ await utility.randomString(3);
-       lastname = "User "+ await utility.randomString(3);
-       address = "Dhaka, "+ await utility.randomString(5);
-       mobileNumber = "1711"+ await utility.randomNumber(1000000,9999999);
 
-       /*Basic Information*/
-          await homeScreenButtonsActions.clickOnCompleteProfileButton();
-    //    await profileCompleteActions.enterFirstname(firstname);
-    //    await profileCompleteActions.enterLastname(lastname);
-    //    await profileCompleteActions.enterAddress(address);
-    //    await profileCompleteActions.enterMobileNumber(mobileNumber);
+    //    firstname = "Test "+ await utility.randomString(3);
+    //    lastname = "User "+ await utility.randomString(3);
+    //    address = "Dhaka, "+ await utility.randomString(5);
+    //    mobileNumber = "1711"+ await utility.randomNumber(1000000,9999999);
 
-    //    await profileCompleteActions.selectNationalityDropdown();
-    //    await profileCompleteActions.selectSearch("Bangladeshi");
-    //    await profileCompleteActions.selectNationality();
-    //    await profileCompleteActions.clickOnBlank(); 
-    //    await profileCompleteActions.selectResidence();
-       await profileCompleteActions.clickOnSaveAndContinueButton();
-       await profileCompleteActions.clickOnCompleteProfileNow();
+    //    /*Basic Information*/
+    //       await homeScreenButtonsActions.clickOnCompleteProfileButton();
+    // //    await profileCompleteActions.enterFirstname(firstname);
+    // //    await profileCompleteActions.enterLastname(lastname);
+    // //    await profileCompleteActions.enterAddress(address);
+    // //    await profileCompleteActions.enterMobileNumber(mobileNumber);
 
-        /*NID Information*/
-        // nid = ""+ await utility.randomNumber(1000000000,9999999999);
-        // await profileCompleteActions.enterNidNumber(nid);
-        // await profileCompleteActions.enterAddress(address);
-        // await profileCompleteActions.clickOnUploadNidFrontCopy();
-        // await driver.pause(2000);
-        // await profileCompleteActions.clickOnFileUploadBar();
-        // await driver.pause(2000);
-        // await profileCompleteActions.clickOnDownloads();
-        // await driver.pause(2000);
-        // await profileCompleteActions.clickOnSelectFile();
-        // await driver.pause(2000);
-        // await profileCompleteActions.clickOnUploadNidBackCopy();
-        // await driver.pause(2000);
-        // await profileCompleteActions.clickOnFileUploadBar();
-        // await driver.pause(2000);
-        // await profileCompleteActions.clickOnDownloads();
-        // await driver.pause(2000);
-        // await profileCompleteActions.clickOnSelectFile();
-        // await driver.pause(2000);
-        await profileCompleteActions.clickOnSaveAndContinueButton();
-        await profileCompleteActions.clickOnCompleteProfileNow();
+    // //    await profileCompleteActions.selectNationalityDropdown();
+    // //    await profileCompleteActions.selectSearch("Bangladeshi");
+    // //    await profileCompleteActions.selectNationality();
+    // //    await profileCompleteActions.clickOnBlank(); 
+    // //    await profileCompleteActions.selectResidence();
+    //    await profileCompleteActions.clickOnSaveAndContinueButton();
+    //    await profileCompleteActions.clickOnCompleteProfileNow();
 
-        /*Passport Information*/
-        // await profileCompleteActions.clickOnPassportNumber(mobileNumber);
-        // await profileCompleteActions.enterPassportName(firstname);
-        // await profileCompleteActions.enterPassportSurname(lastname);
-        // await profileCompleteActions.enterPlaceOfBirth("Dhaka");
-        // await profileCompleteActions.enterDateOfBirth();
-        // await profileCompleteActions.clickOnOkayButton();
-        // await profileCompleteActions.enterIssueDate();
-        // await profileCompleteActions.clickOnOkayButton();
-        // await profileCompleteActions.enterExpiryDate();
-        // await profileCompleteActions.clickOnOkayButton();
-        // await profileCompleteActions.clickOnPassportUpload();
-        // await profileCompleteActions.clickOnFileUploadBar();
-        // await driver.pause(2000);
-        // await profileCompleteActions.clickOnDownloads();
-        // await driver.pause(2000);
-        // await profileCompleteActions.clickOnSelectFile();
-        // await driver.pause(2000);
-        await profileCompleteActions.clickOnSaveAndContinueButton();
-        await profileCompleteActions.clickOnCompleteProfileNow();
+    //     /*NID Information*/
+    //     // nid = ""+ await utility.randomNumber(1000000000,9999999999);
+    //     // await profileCompleteActions.enterNidNumber(nid);
+    //     // await profileCompleteActions.enterAddress(address);
+    //     // await profileCompleteActions.clickOnUploadNidFrontCopy();
+    //     // await driver.pause(2000);
+    //     // await profileCompleteActions.clickOnFileUploadBar();
+    //     // await driver.pause(2000);
+    //     // await profileCompleteActions.clickOnDownloads();
+    //     // await driver.pause(2000);
+    //     // await profileCompleteActions.clickOnSelectFile();
+    //     // await driver.pause(2000);
+    //     // await profileCompleteActions.clickOnUploadNidBackCopy();
+    //     // await driver.pause(2000);
+    //     // await profileCompleteActions.clickOnFileUploadBar();
+    //     // await driver.pause(2000);
+    //     // await profileCompleteActions.clickOnDownloads();
+    //     // await driver.pause(2000);
+    //     // await profileCompleteActions.clickOnSelectFile();
+    //     // await driver.pause(2000);
+    //     await profileCompleteActions.clickOnSaveAndContinueButton();
+    //     await profileCompleteActions.clickOnCompleteProfileNow();
 
-        /*Preferred Job and Country*/
-        // await profileCompleteActions.selectPreferredCountryDropdown();
-        // await profileCompleteActions.selectSearch("Canada");
-        // await profileCompleteActions.selectPreferredCountry();
-        // await profileCompleteActions.clickOnBlank2();
-        // await profileCompleteActions.selectPreferredJobCategoryDropdown();
-        // await profileCompleteActions.selectSearch("Chef");
-        // await profileCompleteActions.selectPreferredJobCategory();
-        // await profileCompleteActions.clickOnBlank2();
+    //     /*Passport Information*/
+    //     // await profileCompleteActions.clickOnPassportNumber(mobileNumber);
+    //     // await profileCompleteActions.enterPassportName(firstname);
+    //     // await profileCompleteActions.enterPassportSurname(lastname);
+    //     // await profileCompleteActions.enterPlaceOfBirth("Dhaka");
+    //     // await profileCompleteActions.enterDateOfBirth();
+    //     // await profileCompleteActions.clickOnOkayButton();
+    //     // await profileCompleteActions.enterIssueDate();
+    //     // await profileCompleteActions.clickOnOkayButton();
+    //     // await profileCompleteActions.enterExpiryDate();
+    //     // await profileCompleteActions.clickOnOkayButton();
+    //     // await profileCompleteActions.clickOnPassportUpload();
+    //     // await profileCompleteActions.clickOnFileUploadBar();
+    //     // await driver.pause(2000);
+    //     // await profileCompleteActions.clickOnDownloads();
+    //     // await driver.pause(2000);
+    //     // await profileCompleteActions.clickOnSelectFile();
+    //     // await driver.pause(2000);
+    //     await profileCompleteActions.clickOnSaveAndContinueButton();
+    //     await profileCompleteActions.clickOnCompleteProfileNow();
 
-        await profileCompleteActions.clickOnSaveAndContinueButton();
-        await profileCompleteActions.clickOnCompleteProfileNow();
+    //     /*Preferred Job and Country*/
+    //     // await profileCompleteActions.selectPreferredCountryDropdown();
+    //     // await profileCompleteActions.selectSearch("Canada");
+    //     // await profileCompleteActions.selectPreferredCountry();
+    //     // await profileCompleteActions.clickOnBlank2();
+    //     // await profileCompleteActions.selectPreferredJobCategoryDropdown();
+    //     // await profileCompleteActions.selectSearch("Chef");
+    //     // await profileCompleteActions.selectPreferredJobCategory();
+    //     // await profileCompleteActions.clickOnBlank2();
 
-        /*Language Proficiency*/
-        // await profileCompleteActions.clickOnBengaliProficiency();
-        // await profileCompleteActions.clickOnLanguageLevel();
-        // await profileCompleteActions.clickOnDoneButton();
+    //     await profileCompleteActions.clickOnSaveAndContinueButton();
+    //     await profileCompleteActions.clickOnCompleteProfileNow();
 
-        await profileCompleteActions.clickOnSaveAndContinueButton();
-        await profileCompleteActions.clickOnCompleteProfileNow();
+    //     /*Language Proficiency*/
+    //     // await profileCompleteActions.clickOnBengaliProficiency();
+    //     // await profileCompleteActions.clickOnLanguageLevel();
+    //     // await profileCompleteActions.clickOnDoneButton();
 
-        /*Work Experience*/
-        // await profileCompleteActions.clickOnExpJobCategoryDropdown();
-        // await profileCompleteActions.selectPreferredJobCategory();
-        // await profileCompleteActions.clickOnBlank3();
-        // await profileCompleteActions.setJobTitle("Chef");
-        // await profileCompleteActions.setCompanyName("Company "+ await utility.randomString(3));
-        // await profileCompleteActions.setSupervisorName("Supervisor "+ await utility.randomString(3));
+    //     await profileCompleteActions.clickOnSaveAndContinueButton();
+    //     await profileCompleteActions.clickOnCompleteProfileNow();
 
-        // await profileCompleteActions.setCountryCodeDropdown();
-        // await profileCompleteActions.selectSearch("880");
-        // await profileCompleteActions.setCountryCode();
-        // await profileCompleteActions.clickOnBlank3();
-        // await profileCompleteActions.enterMobileNumber(mobileNumber);
-        // await profileCompleteActions.setLocation("Dhaka");
-        // const location = await profileCompleteLocators.locationDropdown;
-        // await scrollToElement(location);
-        // await profileCompleteActions.setLocationDropdown();
-        // await profileCompleteActions.setLocationType();
-        // await profileCompleteActions.clickOnBlank3();
+    //     /*Work Experience*/
+    //     // await profileCompleteActions.clickOnExpJobCategoryDropdown();
+    //     // await profileCompleteActions.selectPreferredJobCategory();
+    //     // await profileCompleteActions.clickOnBlank3();
+    //     // await profileCompleteActions.setJobTitle("Chef");
+    //     // await profileCompleteActions.setCompanyName("Company "+ await utility.randomString(3));
+    //     // await profileCompleteActions.setSupervisorName("Supervisor "+ await utility.randomString(3));
 
-        // await profileCompleteActions.setEmploymentTypeDropdown();
-        // await profileCompleteActions.setEmploymentType();
-        // await profileCompleteActions.clickOnBlank3();
-        // await profileCompleteActions.clickOnStartDate();
-        // await profileCompleteActions.clickOnOkayButton();
-        // await profileCompleteActions.clickOnEndDate();
-        // await profileCompleteActions.clickOnOkayButton();
-        // await profileCompleteActions.setDescription("Experienced Chef with a passion for culinary excellence and a track record of leading successful kitchen teams.");
-        // await profileCompleteActions.clickOnUploadCertificate();
-        // await profileCompleteActions.clickOnFileUploadBar();
-        // await driver.pause(2000);
-        // await profileCompleteActions.clickOnDownloads();
-        // await driver.pause(2000);
-        // await profileCompleteActions.clickOnSelectFile();
-        // await driver.pause(2000);
+    //     // await profileCompleteActions.setCountryCodeDropdown();
+    //     // await profileCompleteActions.selectSearch("880");
+    //     // await profileCompleteActions.setCountryCode();
+    //     // await profileCompleteActions.clickOnBlank3();
+    //     // await profileCompleteActions.enterMobileNumber(mobileNumber);
+    //     // await profileCompleteActions.setLocation("Dhaka");
+    //     // const location = await profileCompleteLocators.locationDropdown;
+    //     // await scrollToElement(location);
+    //     // await profileCompleteActions.setLocationDropdown();
+    //     // await profileCompleteActions.setLocationType();
+    //     // await profileCompleteActions.clickOnBlank3();
 
-        await profileCompleteActions.clickOnSaveAndContinueButton();
-        await profileCompleteActions.clickOnCompleteProfileNow();
+    //     // await profileCompleteActions.setEmploymentTypeDropdown();
+    //     // await profileCompleteActions.setEmploymentType();
+    //     // await profileCompleteActions.clickOnBlank3();
+    //     // await profileCompleteActions.clickOnStartDate();
+    //     // await profileCompleteActions.clickOnOkayButton();
+    //     // await profileCompleteActions.clickOnEndDate();
+    //     // await profileCompleteActions.clickOnOkayButton();
+    //     // await profileCompleteActions.setDescription("Experienced Chef with a passion for culinary excellence and a track record of leading successful kitchen teams.");
+    //     // await profileCompleteActions.clickOnUploadCertificate();
+    //     // await profileCompleteActions.clickOnFileUploadBar();
+    //     // await driver.pause(2000);
+    //     // await profileCompleteActions.clickOnDownloads();
+    //     // await driver.pause(2000);
+    //     // await profileCompleteActions.clickOnSelectFile();
+    //     // await driver.pause(2000);
 
-        /*Skills and Certificates*/
-        // const rn= await utility.randomNumber(1,5);
-        // await profileCompleteActions.setSkillYears(rn);
-        // await profileCompleteActions.clickOnSkillDropdown();
-        // await profileCompleteActions.clickOnSkill();
-        // await profileCompleteActions.clickOnBlank4();
-        // await profileCompleteActions.clickOnCertificateDropdown();
-        // await profileCompleteActions.clickOnCertificate();
-        // await profileCompleteActions.clickOnUploadCertificateAndSkills();
-        // await profileCompleteActions.clickOnFileUploadBar();
-        // await driver.pause(2000);
-        // await profileCompleteActions.clickOnDownloads();
-        // await driver.pause(2000);
-        // await profileCompleteActions.clickOnSelectFile();
-        // await driver.pause(2000);
+    //     await profileCompleteActions.clickOnSaveAndContinueButton();
+    //     await profileCompleteActions.clickOnCompleteProfileNow();
 
-        await profileCompleteActions.clickOnSaveAndContinueButton();
-        await profileCompleteActions.clickOnCompleteProfileNow();
+    //     /*Skills and Certificates*/
+    //     // const rn= await utility.randomNumber(1,5);
+    //     // await profileCompleteActions.setSkillYears(rn);
+    //     // await profileCompleteActions.clickOnSkillDropdown();
+    //     // await profileCompleteActions.clickOnSkill();
+    //     // await profileCompleteActions.clickOnBlank4();
+    //     // await profileCompleteActions.clickOnCertificateDropdown();
+    //     // await profileCompleteActions.clickOnCertificate();
+    //     // await profileCompleteActions.clickOnUploadCertificateAndSkills();
+    //     // await profileCompleteActions.clickOnFileUploadBar();
+    //     // await driver.pause(2000);
+    //     // await profileCompleteActions.clickOnDownloads();
+    //     // await driver.pause(2000);
+    //     // await profileCompleteActions.clickOnSelectFile();
+    //     // await driver.pause(2000);
 
-        /*Educational Qualifications*/
-        // await profileCompleteActions.setInstituitionName("Dhaka " + await utility.randomString(3));
-        // await profileCompleteActions.clickOnDegreeDropdown();
-        // await profileCompleteActions.clickOnDegree();
-        // await profileCompleteActions.setFieldOfStudy();
-        // await profileCompleteActions.clickOnStartDate();
-        // await profileCompleteActions.clickOnOkayButton();
-        // await profileCompleteActions.clickOnEndDate();
-        // await profileCompleteActions.clickOnOkayButton();
-        // await profileCompleteActions.setGrade();
-        // await profileCompleteActions.setDescription("This is " + await utility.randomString(4));
-        // const certi = await profileCompleteLocators.uploadCertificate;
-        // await scrollToElement(certi);
-        // await profileCompleteActions.clickOnUploadCertificate();
-        // await profileCompleteActions.clickOnFileUploadBar();
-        // await driver.pause(2000);
-        // await profileCompleteActions.clickOnDownloads();
-        // await driver.pause(2000);
-        // await profileCompleteActions.clickOnSelectFile();
-        // await driver.pause(2000);
+    //     await profileCompleteActions.clickOnSaveAndContinueButton();
+    //     await profileCompleteActions.clickOnCompleteProfileNow();
 
-        await profileCompleteActions.clickOnSaveAndContinueButton();
-        await profileCompleteActions.clickOnCompleteProfileNow();
-        
-        /*Upload Photo and Video*/
-        // await profileCompleteActions.clickOnAvatar();
-        // await profileCompleteActions.clickOnFileUploadBar();
-        // await driver.pause(2000);
-        // await profileCompleteActions.clickOnDownloads();
-        // await driver.pause(2000);
-        // await profileCompleteActions.clickOnSelectFile();
-        // await driver.pause(2000);
-        // await profileCompleteActions.clickOnFeatureImage();
-        // await profileCompleteActions.clickOnFileUploadBar();
-        // await driver.pause(2000);
-        // await profileCompleteActions.clickOnDownloads();
-        // await driver.pause(2000);
-        // await profileCompleteActions.clickOnSelectFile();
-        // await driver.pause(2000);
+    //     /*Educational Qualifications*/
+    //     // await profileCompleteActions.setInstituitionName("Dhaka " + await utility.randomString(3));
+    //     // await profileCompleteActions.clickOnDegreeDropdown();
+    //     // await profileCompleteActions.clickOnDegree();
+    //     // await profileCompleteActions.setFieldOfStudy();
+    //     // await profileCompleteActions.clickOnStartDate();
+    //     // await profileCompleteActions.clickOnOkayButton();
+    //     // await profileCompleteActions.clickOnEndDate();
+    //     // await profileCompleteActions.clickOnOkayButton();
+    //     // await profileCompleteActions.setGrade();
+    //     // await profileCompleteActions.setDescription("This is " + await utility.randomString(4));
+    //     // const certi = await profileCompleteLocators.uploadCertificate;
+    //     // await scrollToElement(certi);
+    //     // await profileCompleteActions.clickOnUploadCertificate();
+    //     // await profileCompleteActions.clickOnFileUploadBar();
+    //     // await driver.pause(2000);
+    //     // await profileCompleteActions.clickOnDownloads();
+    //     // await driver.pause(2000);
+    //     // await profileCompleteActions.clickOnSelectFile();
+    //     // await driver.pause(2000);
 
-        await profileCompleteActions.clickOnSaveAndContinueButton();
-        await profileCompleteActions.clickOnCompleteProfileNow();
+    //     await profileCompleteActions.clickOnSaveAndContinueButton();
+    //     await profileCompleteActions.clickOnCompleteProfileNow();
 
-        /*Document Upload*/
-        // await profileCompleteActions.clickOnPoliceClearancerUpload();
-        // await profileCompleteActions.clickOnFileUploadBar();
-        // await driver.pause(2000);
-        // await profileCompleteActions.clickOnDownloads();
-        // await driver.pause(2000);
-        // await profileCompleteActions.clickOnSelectFile();
-        // await driver.pause(2000);
+    //     /*Upload Photo and Video*/
+    //     // await profileCompleteActions.clickOnAvatar();
+    //     // await profileCompleteActions.clickOnFileUploadBar();
+    //     // await driver.pause(2000);
+    //     // await profileCompleteActions.clickOnDownloads();
+    //     // await driver.pause(2000);
+    //     // await profileCompleteActions.clickOnSelectFile();
+    //     // await driver.pause(2000);
+    //     // await profileCompleteActions.clickOnFeatureImage();
+    //     // await profileCompleteActions.clickOnFileUploadBar();
+    //     // await driver.pause(2000);
+    //     // await profileCompleteActions.clickOnDownloads();
+    //     // await driver.pause(2000);
+    //     // await profileCompleteActions.clickOnSelectFile();
+    //     // await driver.pause(2000);
 
-        // await profileCompleteActions.clickOnHealthCertificate();
-        // await profileCompleteActions.clickOnFileUploadBar();
-        // await driver.pause(2000);
-        // await profileCompleteActions.clickOnDownloads();
-        // await driver.pause(2000);
-        // await profileCompleteActions.clickOnSelectFile();
-        // await driver.pause(2000);
+    //     await profileCompleteActions.clickOnSaveAndContinueButton();
+    //     await profileCompleteActions.clickOnCompleteProfileNow();
 
-        await profileCompleteActions.clickOnSaveAndContinueButton();
-        await profileCompleteActions.clickOnCompleteProfileNow();
-        await bottomNavigationActions.clickHomeButton();
+    //     /*Document Upload*/
+    //     // await profileCompleteActions.clickOnPoliceClearancerUpload();
+    //     // await profileCompleteActions.clickOnFileUploadBar();
+    //     // await driver.pause(2000);
+    //     // await profileCompleteActions.clickOnDownloads();
+    //     // await driver.pause(2000);
+    //     // await profileCompleteActions.clickOnSelectFile();
+    //     // await driver.pause(2000);
 
-        await driver.pause(5000);
+    //     // await profileCompleteActions.clickOnHealthCertificate();
+    //     // await profileCompleteActions.clickOnFileUploadBar();
+    //     // await driver.pause(2000);
+    //     // await profileCompleteActions.clickOnDownloads();
+    //     // await driver.pause(2000);
+    //     // await profileCompleteActions.clickOnSelectFile();
+    //     // await driver.pause(2000);
 
-    }); 
-});  
+    //     await profileCompleteActions.clickOnSaveAndContinueButton();
+    //     await profileCompleteActions.clickOnCompleteProfileNow();
+    //     await bottomNavigationActions.clickHomeButton();
+
+    //     await driver.pause(5000);
+
+    // });
+
+    // it('T-007: Verifying if password is changeable', async () => {
+    //     await bottomNavigationActions.clickProfileButton();
+    //     await driver.pause(2000);
+    //     var oldPassword = "123456";
+    //     var newPassword = "12345678";
+    //     var confirmPassword = "12345678";
+    //     await changePasswordActions.clickOnChangePasswordButton();
+    //     await changePasswordActions.enterOldPassword(oldPassword);
+    //     await changePasswordActions.enterNewPassword(newPassword);
+    //     await changePasswordActions.enterConfirmPassword(confirmPassword);
+    //     await changePasswordActions.clickOnUpdatePasswordButton();
+    //     await driver.pause(2000);
+    //     for(let i=0; i<3; i++){
+    //         await driver.back();
+    //     }
+    //     await bottomNavigationActions.clickHomeButton();
+    // });
+
+    // it('T-008: Verifying if Darkmode works', async () => {
+    //     await bottomNavigationActions.clickProfileButton();
+    //     await driver.pause(2000);
+    //     await darkmodeActions.clickOnDarkModeButton();
+    //     await driver.pause(2000);
+    //     await darkmodeActions.clickOnOnButton();
+    //     await driver.pause(2000);
+    //     await driver.back();
+    //     await bottomNavigationActions.clickHomeButton();
+    // });
+
+
+    //     it('T-009: Verifying if Logout works', async () => {
+    //     await bottomNavigationActions.clickProfileButton();
+    //     await driver.pause(2000);
+    //     await logoutActions.clickOnLogoutButton();
+    //     await driver.pause(2000);
+    //     await logoutActions.clickOnLogoutConfirmation();
+    //     await driver.pause(2000);
+    // });
+});
