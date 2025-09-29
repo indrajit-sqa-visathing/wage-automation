@@ -1,5 +1,7 @@
 class ProfileCompleteLocators {
-    
+    get skipButton(){
+        return $('//android.widget.TextView[@text="Skip"]');
+    }
     //basic info locators
     get firstNameField(){
         return $('//android.widget.EditText[@resource-id="text-input-outlined" and @text="First Name"]'); 
@@ -54,7 +56,7 @@ class ProfileCompleteLocators {
         return $('//android.widget.TextView[@resource-id="android:id/title" and @text="Downloads"]');
     }
     get selectFile(){
-        return $('//android.widget.ImageView[@resource-id="com.google.android.documentsui:id/icon_thumb"]');
+        return $('(//android.widget.ImageView[@resource-id="com.google.android.documentsui:id/icon_thumb"])[3]');
     }
     get uploadNidBackCopy(){
         return $('//android.widget.TextView[@text="Upload NID back copy"]');
@@ -165,7 +167,7 @@ class ProfileCompleteLocators {
         return $('//android.widget.EditText[@resource-id="text-input-outlined" and @text="Write additional information here"]');
     }
     get uploadCertificate(){
-        return $('//android.widget.TextView[@text="Upload Certificate"]');
+        return $('//android.view.ViewGroup[@content-desc="Upload certificate"]/android.view.ViewGroup');
     }
 
     //Skills and Certifications locators
@@ -209,11 +211,17 @@ class ProfileCompleteLocators {
     }
     
     //Upload Photo and Video Locators
-    get avatar(){
-        return $('//android.widget.TextView[@text="Avatar"]');
+    get profilePicture(){
+        return $('//android.view.ViewGroup[@content-desc="Upload Profile Picture"]');
     }
     get featurImage(){
-        return $('//android.widget.TextView[@text="Feature Image"]');
+        return $('//android.view.ViewGroup[@content-desc="Upload Feature Image"]');
+    }
+    get myGallery(){
+        return $('//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[6]/android.view.ViewGroup/com.horcrux.svg.SvgView/com.horcrux.svg.GroupView/com.horcrux.svg.PathView');
+    }
+    get selectFileFromGallery(){
+        return $('//android.widget.ImageView[@resource-id="com.google.android.providers.media.module:id/icon_thumbnail"]');
     }
 
     //Document Upload Locators

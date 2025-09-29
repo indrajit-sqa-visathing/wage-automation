@@ -4,7 +4,9 @@ class AssessmentActions {
     async clickStartAssessment() {
         await assessmentLocators.startAssessmentBtn.click();
     }
-
+    async clickHospitalityAndFoodServicesButton() {
+        await assessmentLocators.hospitalityAndFoodServicesBtn.click();
+    }
     async clickNextButton() {
         await assessmentLocators.nextBtn.click();
     }
@@ -40,7 +42,9 @@ class AssessmentActions {
     async clickQ6Answer() {
         await assessmentLocators.q6Answer.click();
     }
-
+    async clickSubmitAssessmentButton() {
+        await assessmentLocators.submitAssessmentBtn.click();
+    }
     async clickSuggestedCountry() {
         await assessmentLocators.suggestedCountry.click();
     }

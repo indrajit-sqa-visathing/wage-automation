@@ -2,6 +2,10 @@ const profileCompleteLocators = require('./profileCompleteLocators');
 
 class ProfileCompleteActions {
     
+    async clickOnSkipButton(){
+        await profileCompleteLocators.skipButton.click();
+    }
+    
     //basic info actions
     async enterFirstname(firstname) {
         await profileCompleteLocators.firstNameField.setValue(firstname);
@@ -209,11 +213,17 @@ class ProfileCompleteActions {
     }
 
     //Upload Photo and Video Actions
-    async clickOnAvatar(){
-        await profileCompleteLocators.avatar.click();
+    async clickOnProfilePicture(){
+        await profileCompleteLocators.profilePicture.click();
     }
     async clickOnFeatureImage(){
         await profileCompleteLocators.featurImage.click();
+    }
+    async clickOnMyGallery(){
+        await profileCompleteLocators.myGallery.click();
+    }
+    async clickOnSelectFileFromGallery(){
+        await profileCompleteLocators.selectFileFromGallery.click();
     }
 
     //Document Upload Actions
