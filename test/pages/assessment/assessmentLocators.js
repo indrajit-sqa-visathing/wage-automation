@@ -1,18 +1,21 @@
 class AssessmentLocators {
     get startAssessmentBtn() {
-        return $('~Start Assessment');
+        return $('//android.widget.TextView[@text="Start Assessment"]');
     }
 
+    get hospitalityAndFoodServicesBtn() {
+        return $('//android.view.ViewGroup[@content-desc="Hospitality & Food Services "]');
+    }
     get nextBtn() {
         return $('~Next');
     }
 
     get resAndcatBtn() {
-        return $('~Restaurants & Catering');
+        return $('//android.view.ViewGroup[@content-desc="Restaurants & Catering "]');
     }
 
     get selectionBtn() {
-        return $('~Chef');
+        return $('//android.view.ViewGroup[@content-desc="Chef "]');
     }
 
     get q1Answer() {
@@ -24,11 +27,11 @@ class AssessmentLocators {
     }
 
     get q3Answer() {
-        return $('//android.widget.TextView[@text="Menu Planning & Recipe Development"]');
+        return $('//android.view.ViewGroup[@content-desc="2, Basic culinary presentation & plating"]');
     }
 
     get q4Answer() {
-        return $('//android.view.ViewGroup[@content-desc="3, Certified in Professional Chef Course"]');
+        return $('//android.view.ViewGroup[@content-desc="1, Certified Executive Chef (CEC)"]');
     }
 
     get q5Answer() {
@@ -38,9 +41,12 @@ class AssessmentLocators {
     get q6Answer() {
         return $('//android.view.ViewGroup[@content-desc="1, Flyer"]');
     }
+    get submitAssessmentBtn() {
+        return $('//android.view.ViewGroup[@content-desc="Yes, Submit Assessment"]');
+    }
 
     get suggestedCountry() {
-        return $('//android.view.ViewGroup[@content-desc="50%, Match, Chef, Cambodia"]/android.view.ViewGroup[1]');
+        return $('//android.view.ViewGroup[@content-desc="20%, Match, Chef, Romania"]/android.view.ViewGroup[1]');
     }
 
     get createProfileBtn() {

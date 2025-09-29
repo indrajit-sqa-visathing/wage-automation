@@ -64,6 +64,8 @@ exports.config = {
         "appium:automationName": "UiAutomator2",
         "appium:app": "D:\\Android Testing\\apk\\app-release.apk",
         "appium:autoGrantPermissions": true,
+        "appium:noReset": true,
+        "appium:fullReset": false
     }]
     ,
 
